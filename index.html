@@ -2,14 +2,88 @@
 	<head>
 		<title>Hello World</title>
 	</head>
-	<body feDOM>
-		<span var="count"></span>
-		<button click="inc(count, 2)">+</button>
-		<button click="incOne">+1</button>
-		<input type="text" var="name" />
-		<span var="name"></span>
-		<input type="checkbox" var="checked" />
-		<span show="checked">Hello!!!</span>
+	<style>
+		body {
+			display:table;
+		}
+		h4 {
+			display: table-cell;
+			column-span: 2;
+		}
+		body > div {
+				display: table-row;
+		}
+		body > div div.example_code, body > div div.example {
+			display: table-cell;
+			border: 1px solid black;
+			padding: 5px;
+		}
+	</style>
+	<body>
+			<h4>Function calls and data-binding</h4>
+		<div>
+			<div class="example_code">
+				&lt;span var="VARIABLE"&gt;&lt;/span&gt; // { { VARIABLE } }
+			</div>
+			<div class="example">
+				<span var="count"></span> //  {{count}}
+			</div>
+		</div>
+		<div>
+			<div class="example_code">
+				&lt;button click="FUNCTION(VARIABLE)"&gt;&lt;/button&gt;
+			</div>
+			<div class="example">
+				<button click="inc(count, 2)">+</button>
+				<button click="incOne">+1</button>
+			</div>
+		</div>
+		<h4>Data binding in inputs, hide/show data binding</h4>
+		<div>
+			<div class="example_code">
+				&lt;input type="text" var="VARIABLE"&gt;&lt;/span&gt; //  { { VARIABLE } } <br/>
+			</div>
+			<div class="example">
+				<input type="text" var="name" /> {{name}}
+			</div>
+		</div>
+		<div>
+			<div class="example_code">
+				&lt;input type="checkbox" var="SHOW_VARIABLE"&gt;&lt;/span&gt; <br/>
+			</div>
+			<div class="example">
+				<input type="checkbox" var="checked" />
+			</div>
+		</div>
+		<div>
+			<div class="example_code">
+				&lt;span show="SHOW_VARIABLE">WHAT TO SHOW/HIDE&gt;&lt; <br/>
+			</div>
+			<div class="example">
+				<span show="checked">Hello!!!</span>
+			</div>
+
+		</div>
+		<h4>Evaluate</h4>
+
+		<div>
+		<div class="example_code">
+		&lt;span eval="EXPRESSION"&gt;&lt;/span&gt; // { [ EXPRESSION ] }
+		</div>
+		<div class="example">
+			count + name: {[count + name]} <br/>
+		5 * 35 + 100 - 23 = {[5*35+100-23]}
+		</div>
+	</div>
+		<h4>One Way Binding</h4>
+<div>
+		<div class="example_code">
+			&lt;span once="VARIABLE"&gt;&lt;/span&gt; // { ( VARIABLE ) } <br />
+		</div>
+		<div class="example">
+			count :  {(name)} // <span once="name"></span>
+		</div>
+	</div>
 		<script src="objwatch.js"></script>
 		<script src="script.js"></script>
 	</body>
